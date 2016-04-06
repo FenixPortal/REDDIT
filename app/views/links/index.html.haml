@@ -1,0 +1,17 @@
+%h1 Listing Links
+%table
+  %thead
+    %tr
+      %th Link
+      %th Title
+      %th{:colspan => "3"}
+  %tbody
+    - @links.each do |link|
+      %tr
+        %td= link.link
+        %td= link.title
+        %td= link_to 'Show', link
+        %td= link_to 'Edit', edit_link_path(link)
+        %td= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Link', new_link_path

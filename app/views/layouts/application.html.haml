@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Reddit
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    - flash.each do |type, message|
+      %div{:class => "alert #{bootstrap_class_for(type)} fade in"}
+        %button.close{"data-dismiss" => "alert"}
+          %i.glyphicon.glyphicon-remove-circle
+        %i{:class => "glyphicon glyphicon-#{bootstrap_icon_for(type)}"}
+        = message
+    = yield
