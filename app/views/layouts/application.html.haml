@@ -13,4 +13,13 @@
           %i.glyphicon.glyphicon-remove-circle
         %i{:class => "glyphicon glyphicon-#{bootstrap_icon_for(type)}"}
         = message
+    - if user_signed_in?
+      %ul
+        %li= link_to('Links', new_link_path)
+        %li= link_to('account', edit_user_registration_path)
+        %li= link_to('Logout', destroy_user_session_path, :method => :delete)
+    - else
+      %ul
+        %li= link_to('Sign Up', new_user_registration_path)
+        %li= link_to('Sign In', new_user_session_path)
     = yield
