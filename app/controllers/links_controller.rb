@@ -20,7 +20,7 @@ class LinksController < ApplicationController
 
   # GET /links/1/edit
   def edit
-    @link = current_user.links.build
+    # @link = current_user.links.build
   end
 
   # POST /links
@@ -71,6 +71,6 @@ class LinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:link, :title, :user_id)
+      params.require(:link).permit(:url, :title, :user_id)
     end
 end

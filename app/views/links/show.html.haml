@@ -1,10 +1,12 @@
-%p#notice= notice
-%p
-  %strong Link:
-  = @link.link
-%p
-  %strong Title:
-  = @link.title
-= link_to 'Edit', edit_link_path(@link)
-|
-= link_to 'Back', links_path
+.page-header
+  %h1
+    %a{:href => @link.url}= @link.title
+    %br
+      %small
+        Submitted by #{@link.user.email}
+.btn-group
+  = link_to 'Visit URL', @link.url, class: "btn btn-primary"
+- if @link.user == current_user
+  .btn-group
+    = link_to 'Edit', edit_link_path(@link), class: "btn btn-default"
+    = link_to 'Destroy', @link, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"

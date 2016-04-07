@@ -7,13 +7,14 @@
       %ul
         - @link.errors.full_messages.each do |message|
           %li= message
-  .field
-    = f.label :link
-    %br/
-    = f.text_field :link
-  .field
+  .form-group
     = f.label :title
-    %br/
-    = f.text_field :title
-  .actions
-    = f.submit
+    %br
+      = f.text_field :title, class: "form-control"
+  .form-group
+    = f.label :url
+    %br
+      = f.text_field :url, class: "form-control"
+  %br
+  .form-group
+    = f.submit "Submit", class: "btn btn-lg btn-primary"

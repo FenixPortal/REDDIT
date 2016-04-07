@@ -25,3 +25,4 @@ end
 gem 'devise'
 gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'haml-rails', '~> 0.9'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'

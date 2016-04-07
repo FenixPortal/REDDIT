@@ -1,16 +1,7 @@
-%h1 Listing Links
-%table
-  %thead
-    %tr
-      %th Link
-      %th Title
-      %th{:colspan => "3"}
-  %tbody
-    - @links.each do |link|
-      %tr
-        %td= link.link
-        %td= link.title
-        %td= link_to 'Show', link
-        - if link.user == current_user
-          %td= link_to 'Edit', edit_link_path(link)
-          %td= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' }
+- @links.each do |link|
+  .link.row.clearfix
+    %h2
+      = link_to link.title, link
+      %br
+        %small.author
+          Submitted #{time_ago_in_words(link.created_at)} by #{link.user.email}
