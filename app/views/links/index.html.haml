@@ -5,3 +5,13 @@
       %br
         %small.author
           Submitted #{time_ago_in_words(link.created_at)} by #{link.user.email}
+    .btn-group
+      %a.btn.btn-default.btn-sm{:href => link.url} Visit Link
+      = link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do
+        %span.glyphicon.glyphicon-chevron-up
+        Upvote
+        \#{link.get_upvotes.size}
+      = link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do
+        %span.glyphicon.glyphicon-chevron-down
+          Downvote
+          \#{link.get_downvotes.size}

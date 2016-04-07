@@ -10,3 +10,12 @@
   .btn-group
     = link_to 'Edit', edit_link_path(@link), class: "btn btn-default"
     = link_to 'Destroy', @link, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"
+.btn-group.pull-right
+  = link_to like_link_path(@link), method: :put, class: "btn btn-default btn-sm" do
+    %span.glyphicon.glyphicon-chevron-up
+    Upvote
+    \#{@link.get_upvotes.size}
+  = link_to dislike_link_path(@link), method: :put, class: "btn btn-default btn-sm" do
+    %span.glyphicon.glyphicon-chevron-down
+      Downvote
+      \#{@link.get_downvotes.size}
