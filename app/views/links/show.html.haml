@@ -19,3 +19,13 @@
     %span.glyphicon.glyphicon-chevron-down
       Downvote
       \#{@link.get_downvotes.size}
+%h3.comments_title
+  = @link.comments.count
+  Comments
+#comments
+  = render :partial => @link.comments
+= simple_form_for [@link, Comment.new]  do |f|
+  .field
+    = f.text_area :body, class: "form-control"
+  %br
+    = f.submit "Add Comment", class: "btn btn-primary"
