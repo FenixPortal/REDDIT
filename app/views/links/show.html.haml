@@ -3,7 +3,7 @@
     %a{:href => @link.url}= @link.title
     %br
       %small
-        Submitted by #{@link.user.email}
+        Submitted by #{@link.user.name}
 .btn-group
   = link_to 'Visit URL', @link.url, class: "btn btn-primary"
 - if @link.user == current_user
